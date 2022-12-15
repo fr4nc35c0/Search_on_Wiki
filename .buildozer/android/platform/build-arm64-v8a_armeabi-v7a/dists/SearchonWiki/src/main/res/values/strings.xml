@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Search on Wiki</string>
+    <string name="private_version">a0a4012b4735b5ef13b3c8f264ea6e62e290dfd5</string>
+    <string name="presplash_color">#000000</string>
+    <string name="urlScheme">kivy</string>
+</resources>

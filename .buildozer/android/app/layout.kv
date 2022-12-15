@@ -1,0 +1,80 @@
+MDNavigationLayout:
+    ScreenManager:
+        Screen:
+            BoxLayout:
+                orientation: 'vertical'
+                MDTopAppBar :
+                    title: 'Search on Wiki'
+                    right_action_items: [['menu', lambda x: nav_drawer.set_state()]]
+
+                GridLayout:
+                    rows: 4
+                    MDTextField:
+                        id: mdinput
+                        hint_text: 'What do you search?'
+                        mode: 'rectangle'
+
+                    MDRaisedButton:
+                        text: 'Start search'
+                        size_hint_x: 1
+                        size_hint_y: .1
+                        on_press: app.wiki_search()
+
+                    ScrollView:
+                        MDLabel:
+                            padding_x: 30
+                            id: mdlabel
+                            markup: True
+                            text: '\n[b]Welcome![/b]'
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_size: self.width, None
+
+                    MDRaisedButton:
+                        text: 'Random theme'
+                        size_hint_x: 1
+                        size_hint_y: .1
+                        on_press: app.wiki_search_rand()
+    MDNavigationDrawer:
+        id: nav_drawer
+        BoxLayout:
+            orientation: "vertical"
+            padding: "8dp"
+            spacing: "8dp"
+
+            AnchorLayout:
+                anchor_x: "left"
+                size_hint_y: None
+                height: avatar.height
+
+                Image:
+                    id: avatar
+                    size_hint: None, None
+                    size: "56dp", "56dp"
+                    source: "learning.png"
+
+            MDLabel:
+                text: "Search on Wiki 0.1"
+                font_style: "Button"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            MDLabel:
+                font_style: "Caption"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            ScrollView:
+                MDList:
+                    OneLineAvatarListItem:
+                        text: "Info App"
+                        on_press: app.show_info_app()
+
+                        IconLeftWidget:
+                            icon: "information-outline"
+                    OneLineAvatarListItem:
+                        text: "Feedback"
+                        on_press: app.show_contact()
+
+                        IconLeftWidget:
+                            icon: "email-search-outline"
